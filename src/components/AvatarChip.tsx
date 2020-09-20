@@ -16,7 +16,7 @@ export class AvatarChip extends React.Component<AvatarChipProps> {
                     component={'a'}
                     target={'_blank'}
                     avatar={<Avatar src={this.props.data?.author?.avatar_url} />}
-                    label={this.props.data?.author?.login || 'Unknown'}/>
+                    label={this.props.data?.author?.login || 'Unknown user'}/>
             </Grow>
         );
     }
