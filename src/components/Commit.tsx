@@ -1,4 +1,4 @@
-import { Avatar, Badge, Chip, Divider, Grow, Link, List, ListItem, Modal, Slide, Typography } from "@material-ui/core";
+import { Badge, Divider, Link, ListItem, Slide, Typography } from "@material-ui/core";
 import Dialog from '@material-ui/core/Dialog';
 import React from "react";
 import { CommitData } from "../api/CommitData";
@@ -25,7 +25,7 @@ export class Commit extends React.Component<CommitProps, CommitState> {
         return (
             <div>
                 <Slide direction='left' in={true}>
-                <ListItem button onClick={e => this.setState({shouldShowDetails: true})}>
+                <ListItem button onClick={() => this.setState({shouldShowDetails: true})}>
                     <AvatarChip data={this.props.data} />
                     <Typography>{this.props.data.commit.message}</Typography>
                     <Badge badgeContent={this.props.data.commit.comment_count} color="primary">

@@ -1,7 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppBar, TextField, Toolbar, Typography } from "@material-ui/core";
+import {  Typography } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
-import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { findRepos } from '../api/github';
 import { RepoData, createRepoData } from '../api/RepoData';
 import { RepoTable } from "./RepoTable";
