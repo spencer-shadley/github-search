@@ -1,5 +1,6 @@
 import { InputAdornment, TextField } from "@material-ui/core";
 import React, { ChangeEvent } from "react";
+import { Logo } from "./Logo";
 
 interface HomeProps {
 }
@@ -16,7 +17,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
         }
     }
 
-    handleChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+    handleChange = (event: ChangeEvent<HTMLInputElement>) => {
         this.setState({test: event.target.value});
     }
 
@@ -29,6 +30,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
                     fullWidth
                     margin='normal'
                     onChange={this.handleChange}
+                    InputProps={{
+                        endAdornment: <h1>s</h1>
+                    }}
                 />
                 <p>
                     {this.state.test}
