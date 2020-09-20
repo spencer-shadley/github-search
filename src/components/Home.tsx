@@ -1,6 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { InputAdornment, TextField } from "@material-ui/core";
 import React, { ChangeEvent } from "react";
-import { Logo } from "./Logo";
+import { faSearch } from '@fortawesome/free-solid-svg-icons'
 
 interface HomeProps {
 }
@@ -25,13 +26,14 @@ export class Home extends React.Component<HomeProps, HomeState> {
         return (
             <div>
                 <h1>Home</h1>
+                <FontAwesomeIcon icon="coffee" />
                 <TextField
                     label='Search'
                     fullWidth
                     margin='normal'
                     onChange={this.handleChange}
                     InputProps={{
-                        endAdornment: <h1>s</h1>
+                        endAdornment: <FontAwesomeIcon icon={faSearch}/>
                     }}
                 />
                 <p>
