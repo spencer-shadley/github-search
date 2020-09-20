@@ -4,6 +4,7 @@ import { findRepos } from '../api/github';
 import { RepoData, createRepoData } from '../api/RepoData';
 import { RepoTable } from "./RepoTable";
 import { Header } from "./Header";
+import { Instructions } from "./Instructions";
 
 const isDevelopment = false;
 
@@ -59,9 +60,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
                 <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
                 <RepoTable repos={this.state.repos}/>
                 {this.state.repos.length == 0 &&
-                    <Typography variant='h3'>
-                        Use the above bar to search for an organization on GitHub!
-                    </Typography>}
+                    <Instructions/>}
                 {this.state.errorText &&
                     <h1>{this.state.errorText}</h1>}
             </div>
