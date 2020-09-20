@@ -1,3 +1,4 @@
+import { AddBox, ArrowDownward } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TextField } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
@@ -32,6 +33,15 @@ export class Home extends React.Component<HomeProps, HomeState> {
         event.stopPropagation();
 
         findRepos(this.state.searchText).then(res => {
+            console.log(res);
+            this.setState({
+                repos: res.data.map((repo: {}) => createRepoData(repo))
+            });
+        }).catch(console.error);
+    }
+
+    componentDidMount() {
+        findRepos('Netflix').then(res => {
             console.log(res);
             this.setState({
                 repos: res.data.map((repo: {}) => createRepoData(repo))
