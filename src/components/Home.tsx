@@ -1,7 +1,25 @@
 import { InputAdornment, TextField } from "@material-ui/core";
-import React from "react";
+import React, { ChangeEvent } from "react";
 
-export class Home extends React.Component {
+interface HomeProps {
+}
+
+interface HomeState {
+    test: string
+}
+
+export class Home extends React.Component<HomeProps, HomeState> {
+    constructor(props: HomeProps) {
+        super(props);
+        this.state = {
+            test: 'pizza'
+        }
+    }
+
+    handleChange = (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {
+        this.setState({test: event.target.value});
+    }
+
     render() {
         return (
             <div>
@@ -10,7 +28,11 @@ export class Home extends React.Component {
                     label='Search'
                     fullWidth
                     margin='normal'
+                    onChange={this.handleChange}
                 />
+                <p>
+                    {this.state.test}
+                </p>
             </div>
         );
     }
