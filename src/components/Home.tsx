@@ -6,21 +6,37 @@ import { findRepos } from '../api/github';
 import { RepoData, createRepoData } from '../api/RepoData';
 import { RepoTable } from "./RepoTable";
 
-interface HomeProps {
-}
+interface HomeProps {}
 
 interface HomeState {
     searchText: string,
     repos: RepoData[]
+    errorText: string
 }
+
+const isDevelopment = true;
 
 export class Home extends React.Component<HomeProps, HomeState> {
     constructor(props: HomeProps) {
         super(props);
         this.state = {
             searchText: '',
-            repos: []
+            repos: [],
+            errorText: ''
         }
+    }
+
+    searchRepos = (org: string) => {
+        findRepos(org).then(res => {
+            console.log(res);
+            this.setState({
+                repos: res.data.map((repo: {}) => createRepoData(repo))
+            });
+        }).catch(err => {
+            this.setState({
+                errorText: `${err}: ${err.response.statusText}`
+            })
+        });
     }
 
     handleChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -31,21 +47,11 @@ export class Home extends React.Component<HomeProps, HomeState> {
         event.preventDefault();
         event.stopPropagation();
 
-        findRepos(this.state.searchText).then(res => {
-            console.log(res);
-            this.setState({
-                repos: res.data.map((repo: {}) => createRepoData(repo))
-            });
-        }).catch(console.error);
+        this.searchRepos(this.state.searchText);
     }
 
     componentDidMount() {
-        findRepos('Netflix').then(res => {
-            console.log(res);
-            this.setState({
-                repos: res.data.map((repo: {}) => createRepoData(repo))
-            });
-        }).catch(console.error);
+        if(isDevelopment) this.searchRepos('Netflix');
     }
 
     render() {
@@ -64,7 +70,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
                         }}
                     />
                 </form>
-                {<RepoTable repos={this.state.repos}/>}
+                <RepoTable repos={this.state.repos}/>
+                {this.state.errorText && <h1>{this.state.errorText}</h1>}
             </div>
         );
     }
