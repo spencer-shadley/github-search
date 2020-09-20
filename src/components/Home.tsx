@@ -1,21 +1,25 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { InputAdornment, TextField } from "@material-ui/core";
+import { TextField } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { findRepos } from '../api/github';
+import { RepoData, createRepoData } from '../api/RepoData';
+import { RepoTable } from "./RepoTable";
 
 interface HomeProps {
 }
 
 interface HomeState {
-    searchText: string
+    searchText: string,
+    repos: RepoData[]
 }
 
 export class Home extends React.Component<HomeProps, HomeState> {
     constructor(props: HomeProps) {
         super(props);
         this.state = {
-            searchText: 'pizza'
+            searchText: '',
+            repos: []
         }
     }
 
@@ -29,7 +33,10 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
         findRepos(this.state.searchText).then(res => {
             console.log(res);
-        });
+            this.setState({
+                repos: res.data.map((repo: {}) => createRepoData(repo))
+            });
+        }).catch(console.error);
     }
 
     render() {
@@ -47,10 +54,9 @@ export class Home extends React.Component<HomeProps, HomeState> {
                         }}
                     />
                 </form>
-                <p>
-                    {this.state.searchText}
-                </p>
+                {<RepoTable repos={this.state.repos}/>}
             </div>
         );
     }
 }
+
