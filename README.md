@@ -18,6 +18,14 @@ Search for orgnazations on GitHub. After searching for an organization explore p
 - `react-router-dom`
 - `axios`
 - `material-table`
+- `eslint`
+- `heroku`
+
+## Future development
+
+- UI cleanup
+- Save/star favorite orgs/repos/commits
+- More info when viewing a commit
 
 ## Brainstorm
 ![brainstorm](readme-resources/brainstorm.png)
