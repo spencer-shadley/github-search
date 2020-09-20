@@ -5,6 +5,7 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { findRepos } from '../api/github';
 import { RepoData, createRepoData } from '../api/RepoData';
 import { RepoTable } from "./RepoTable";
+import { Header } from "./Header";
 
 const isDevelopment = false;
 
@@ -57,34 +58,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
     render() {
         return (
             <div>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Typography variant="h6" noWrap>GitHub Org Searcher</Typography>
-                        <form onSubmit={this.handleSubmit} style={
-                            {flexGrow: 1, marginLeft: 100, alignSelf: 'center', alignItems: 'center', alignContent: 'center', justifySelf: 'center'}}>
-                            <TextField
-                                variant='outlined'
-                                label='Search for an organization...'
-                                placeholder='Netflix'
-                                fullWidth
-                                margin='normal'
-                                onChange={this.handleChange}
-                                InputProps={{
-                                    endAdornment: <FontAwesomeIcon icon={faSearch}/>,
-                                    style: {
-                                        color: 'white',
-                                        borderColor: 'white !important'
-                                    }
-                                }}
-                                InputLabelProps={{
-                                    style: {
-                                        color: 'white'
-                                    }
-                                }}
-                            />
-                       </form>
-                    </Toolbar>
-                </AppBar>
+                <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
                 <RepoTable repos={this.state.repos}/>
                 {this.state.repos.length == 0 &&
                     <Typography variant='h3'>
