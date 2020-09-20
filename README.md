@@ -1,6 +1,6 @@
 # GitHub Organization Searcher
 
-Search for orgnazations on GitHub. After searching for an organization explore popular repos and commits within that repo.
+Search for organizations on GitHub. After searching for an organization explore popular repos and commits within that repo.
 
 ## How to use
 
