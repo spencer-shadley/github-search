@@ -59,7 +59,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
             <div>
                 <AppBar position="static">
                     <Toolbar>
-                        <Typography variant="h6" noWrap>GitHub Repo Searcher</Typography>
+                        <Typography variant="h6" noWrap>GitHub Org Searcher</Typography>
                         <form onSubmit={this.handleSubmit} style={
                             {flexGrow: 1, marginLeft: 100, alignSelf: 'center', alignItems: 'center', alignContent: 'center', justifySelf: 'center'}}>
                             <TextField
