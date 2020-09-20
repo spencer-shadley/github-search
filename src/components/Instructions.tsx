@@ -11,6 +11,6 @@ export class Instructions extends React.Component {
                     <p>Use the above bar to search for an organization on GitHub!</p>
                 </Container>
             </Jumbotron>
-            );
+        );
     }
 }
