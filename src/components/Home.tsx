@@ -2,6 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { InputAdornment, TextField } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
+import { findRepos } from '../api/github';
 
 interface HomeProps {
 }
@@ -23,9 +24,12 @@ export class Home extends React.Component<HomeProps, HomeState> {
     }
 
     handleSubmit = (event: FormEvent<HTMLFormElement>) => {
-        alert(this.state.searchText);
         event.preventDefault();
         event.stopPropagation();
+
+        findRepos(this.state.searchText).then(res => {
+            console.log(res);
+        });
     }
 
     render() {
