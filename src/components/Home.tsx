@@ -1,10 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { TextField } from "@material-ui/core";
+import { AppBar, IconButton, InputBase, TextField, Toolbar, Typography } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { findRepos } from '../api/github';
 import { RepoData, createRepoData } from '../api/RepoData';
 import { RepoTable } from "./RepoTable";
+
+const isDevelopment = true;
 
 interface HomeProps {}
 
@@ -13,8 +15,6 @@ interface HomeState {
     repos: RepoData[]
     errorText: string
 }
-
-const isDevelopment = true;
 
 export class Home extends React.Component<HomeProps, HomeState> {
     constructor(props: HomeProps) {
@@ -56,11 +56,29 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
     render() {
         return (
-            <div>
-                <h1>Home</h1>
-                <form onSubmit={this.handleSubmit}>
+            <div style={{height: '100%'}}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h6" noWrap>GitHub Repo Searcher</Typography>
+                        <form onSubmit={this.handleSubmit} style={
+                            {flexGrow: 1, marginLeft: 100, alignSelf: 'center', alignItems: 'center', alignContent: 'center', justifySelf: 'center'}}>
+                            <TextField
+                                variant='outlined'
+                                label='Search for an organization'
+                                placeholder='Netflix'
+                                fullWidth
+                                margin='normal'
+                                onChange={this.handleChange}
+                                InputProps={{
+                                    endAdornment: <FontAwesomeIcon icon={faSearch}/>
+                                }}
+                            />
+                       </form>
+                    </Toolbar>
+                </AppBar>
+                {/* <form onSubmit={this.handleSubmit}>
                     <TextField
-                        label='Search for organization'
+                        label='Search for an organization'
                         placeholder='Netflix'
                         fullWidth
                         margin='normal'
@@ -69,9 +87,14 @@ export class Home extends React.Component<HomeProps, HomeState> {
                             endAdornment: <FontAwesomeIcon icon={faSearch}/>
                         }}
                     />
-                </form>
+                </form> */}
                 <RepoTable repos={this.state.repos}/>
-                {this.state.errorText && <h1>{this.state.errorText}</h1>}
+                {this.state.repos.length == 0 &&
+                    <Typography variant='h3'>
+                        Use the above bar to search for an organization on GitHub!
+                    </Typography>}
+                {this.state.errorText &&
+                    <h1>{this.state.errorText}</h1>}
             </div>
         );
     }
