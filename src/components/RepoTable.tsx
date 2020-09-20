@@ -1,16 +1,13 @@
 import MaterialTable from "material-table";
 import React from "react";
 import { RepoData } from "../api/RepoData";
+import { Repo } from "./Repo";
 
 interface RepoTableProps {
     repos: RepoData[]
 }
 
 export class RepoTable extends React.Component<RepoTableProps> {
-    constructor(props: RepoTableProps) {
-        super(props);
-    }
-
     render() {
         return (
             <div>
@@ -26,6 +23,9 @@ export class RepoTable extends React.Component<RepoTableProps> {
                     data={[...this.props.repos].sort((repoA, repoB) => repoA.stargazers_count - repoB.stargazers_count)}
                     title='Repos'
                     options={{pageSize: 10}}
+                    detailPanel={
+                        rowData => {return <Repo repoData={rowData} />}
+                    }
                 />}
             </div>
             );

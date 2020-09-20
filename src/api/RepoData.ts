@@ -1,3 +1,5 @@
+import { OwnerData } from "./OwnerData";
+
 export interface RepoData {
     archived: boolean,
     created_at: Date,
@@ -11,6 +13,7 @@ export interface RepoData {
     id: number,
     name: string,
     open_issues_count: number,
+    owner: OwnerData,
     pushed_at: Date,
     size: number,
     stargazers_count: number,
@@ -34,6 +37,7 @@ export function createRepoData(data: {[key: string]: number | string | boolean |
         id: data['id'] as number,
         name: data['name'] as string,
         open_issues_count: data['open_issues_count'] as number,
+        owner: data['owner'] as unknown as OwnerData,
         pushed_at: data['pushed_at'] as Date,
         size: data['size'] as number,
         stargazers_count: data['stargazers_count'] as number,
