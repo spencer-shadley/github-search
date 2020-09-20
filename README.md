@@ -3,8 +3,19 @@
 Search for orgnazations on GitHub. After searching for an organization explore popular repos and commits within that repo.
 
 ## How to use
+
 - Deployed at https://github-org-search.herokuapp.com/
 - Run manually with `npm run start`
+
+## Functionality
+
+1. Search for an organization on GitHub using the searchbar in the header at the top
+   1. Repos for that organization will be listed, sorted by the number of issues in that repo
+   2. Click the column headers to update the sort
+   3. Expand a repo to see the latest commits for that repo
+      1. Click a commit to open a dialog with more info
+      2. Click the commit SHA to go to the commit on GitHub
+      3. Click the author to open their GitHub profile
 
 ## Technology
 
