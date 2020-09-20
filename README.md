@@ -35,6 +35,7 @@ Search for orgnazations on GitHub. After searching for an organization explore p
 ## Future development
 
 - UI cleanup
+- Better responsive design for mobile
 - Save/star favorite orgs/repos/commits
 - More info when viewing a commit
 
