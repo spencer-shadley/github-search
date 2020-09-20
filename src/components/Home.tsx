@@ -59,10 +59,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
             <div>
                 <Header handleChange={this.handleChange} handleSubmit={this.handleSubmit} />
                 <RepoTable repos={this.state.repos}/>
-                {this.state.repos.length == 0 &&
-                    <Instructions/>}
-                {this.state.errorText &&
-                    <h1>{this.state.errorText}</h1>}
+                {this.state.repos.length == 0 && <Instructions/>}
+                {this.state.errorText && <h1>{this.state.errorText}</h1>}
             </div>
         );
     }
