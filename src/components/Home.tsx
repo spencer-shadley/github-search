@@ -1,12 +1,16 @@
+import { InputAdornment, TextField } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
 
 export class Home extends React.Component {
     render() {
         return (
             <div>
                 <h1>Home</h1>
-                <Link to='/error'>Error </Link>
+                <TextField
+                    label='Search'
+                    fullWidth
+                    margin='normal'
+                />
             </div>
         );
     }
