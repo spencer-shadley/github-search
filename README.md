@@ -12,7 +12,8 @@ Search for organizations on GitHub. After searching for an organization explore 
 1. Search for an organization on GitHub using the searchbar in the header at the top
    1. Repos for that organization will be listed, sorted by the number of issues in that repo
    2. Click the column headers to update the sort
-   3. Expand a repo to see the latest commits for that repo
+   3. Search for a specific repo using the inline search in the top right of the table
+   4. Expand a repo to see the latest commits for that repo
       1. Click a commit to open a dialog with more info
       2. Click the commit SHA to go to the commit on GitHub
       3. Click the author to open their GitHub profile
