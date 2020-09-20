@@ -1,12 +1,12 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { AppBar, IconButton, InputBase, TextField, Toolbar, Typography } from "@material-ui/core";
+import { AppBar, TextField, Toolbar, Typography } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
 import { faSearch } from '@fortawesome/free-solid-svg-icons'
 import { findRepos } from '../api/github';
 import { RepoData, createRepoData } from '../api/RepoData';
 import { RepoTable } from "./RepoTable";
 
-const isDevelopment = true;
+const isDevelopment = false;
 
 interface HomeProps {}
 
@@ -56,7 +56,7 @@ export class Home extends React.Component<HomeProps, HomeState> {
 
     render() {
         return (
-            <div style={{height: '100%'}}>
+            <div>
                 <AppBar position="static">
                     <Toolbar>
                         <Typography variant="h6" noWrap>GitHub Repo Searcher</Typography>
@@ -64,30 +64,27 @@ export class Home extends React.Component<HomeProps, HomeState> {
                             {flexGrow: 1, marginLeft: 100, alignSelf: 'center', alignItems: 'center', alignContent: 'center', justifySelf: 'center'}}>
                             <TextField
                                 variant='outlined'
-                                label='Search for an organization'
+                                label='Search for an organization...'
                                 placeholder='Netflix'
                                 fullWidth
                                 margin='normal'
                                 onChange={this.handleChange}
                                 InputProps={{
-                                    endAdornment: <FontAwesomeIcon icon={faSearch}/>
+                                    endAdornment: <FontAwesomeIcon icon={faSearch}/>,
+                                    style: {
+                                        color: 'white',
+                                        borderColor: 'white !important'
+                                    }
+                                }}
+                                InputLabelProps={{
+                                    style: {
+                                        color: 'white'
+                                    }
                                 }}
                             />
                        </form>
                     </Toolbar>
                 </AppBar>
-                {/* <form onSubmit={this.handleSubmit}>
-                    <TextField
-                        label='Search for an organization'
-                        placeholder='Netflix'
-                        fullWidth
-                        margin='normal'
-                        onChange={this.handleChange}
-                        InputProps={{
-                            endAdornment: <FontAwesomeIcon icon={faSearch}/>
-                        }}
-                    />
-                </form> */}
                 <RepoTable repos={this.state.repos}/>
                 {this.state.repos.length == 0 &&
                     <Typography variant='h3'>
