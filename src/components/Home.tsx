@@ -1,4 +1,3 @@
-import { AddBox, ArrowDownward } from "@material-ui/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { TextField } from "@material-ui/core";
 import React, { ChangeEvent, FormEvent } from "react";
@@ -55,7 +54,8 @@ export class Home extends React.Component<HomeProps, HomeState> {
                 <h1>Home</h1>
                 <form onSubmit={this.handleSubmit}>
                     <TextField
-                        label='Search'
+                        label='Search for organization'
+                        placeholder='Netflix'
                         fullWidth
                         margin='normal'
                         onChange={this.handleChange}
