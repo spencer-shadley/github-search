@@ -5,7 +5,7 @@ Search for organizations on GitHub. After searching for an organization explore 
 ## How to use
 
 - Deployed at https://github-org-search.herokuapp.com/
-- Run manually with `npm run start`
+- Run manually with `npm run start` after installing dependencies (`npm i`)
 
 ## Functionality
 
@@ -51,8 +51,10 @@ Search for organizations on GitHub. After searching for an organization explore 
 
 ### Unit Tests
 
-Run unit tests with `npm run test`
+- Run unit tests with `npm run test`
+- Unit tests can be found as sibling files to each component, named as `Component.test.tsx` (for example, `src/components/RepoTable.test.tsx`)
+- Data for unit tests can be found under `src/test/data`
 
 ### Manual Tests
 
-Follow the above functionality guide for information on how to manually test
+Follow the above functionality guide for information on how to manually test after running `npm i && npm run start`
