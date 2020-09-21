@@ -46,3 +46,13 @@ Search for organizations on GitHub. After searching for an organization explore 
 ![brainstorm](readme-resources/brainstorm.png)
 
 ![octocat](public/favicon.png)
+
+## Testing
+
+### Unit Tests
+
+Run unit tests with `npm run test`
+
+### Manual Tests
+
+Follow the above functionality guide for information on how to manually test
