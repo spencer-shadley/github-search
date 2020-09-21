@@ -1,9 +1,9 @@
 import { Chip, Grow } from "@material-ui/core";
 import React from 'react';
 import { mount, shallow } from 'enzyme';
-import { AvatarChip } from './AvatarChip';
-import commitData from '../test/data/commitData.json';
-import { CommitData } from '../api/CommitData' ;
+import { AvatarChip } from '../../components/AvatarChip';
+import commitData from '../data/commitData.json';
+import { CommitData } from '../../api/CommitData' ;
 
 const data = commitData as unknown as CommitData;
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import repoData from '../test/data/repoData';
-import { RepoTable } from './RepoTable';
+import repoData from '../data/repoData';
+import { RepoTable } from '../../components/RepoTable';
 import MaterialTable from 'material-table';
 
 const repos = [repoData];

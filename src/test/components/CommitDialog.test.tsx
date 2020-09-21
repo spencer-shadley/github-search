@@ -1,9 +1,9 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import commitData from '../test/data/commitData.json';
-import { CommitData } from '../api/CommitData' ;
+import commitData from '../data/commitData.json';
+import { CommitData } from '../../api/CommitData' ;
 import { DialogTitle, Link, LinkTypeMap, Typography } from '@material-ui/core';
-import { CommitDialogContents } from './CommitDialog';
+import { CommitDialogContents } from '../../components/CommitDialog';
 
 const data = commitData as unknown as CommitData;
 
