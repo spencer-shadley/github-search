@@ -52,9 +52,9 @@ Search for organizations on GitHub. After searching for an organization explore 
 ### Unit Tests
 
 - Run unit tests with `npm run test`
-- Unit tests can be found as sibling files to each component, named as `Component.test.tsx` (for example, `src/components/RepoTable.test.tsx`)
+- All unit tests can be found under the `test` directory, named as `File.test.tsx` (for example, `src/test/components/RepoTable.test.tsx`)
 - Data for unit tests can be found under `src/test/data`
 
-### Manual Tests
+### Manual Testing
 
-Follow the above functionality guide for information on how to manually test after running `npm i && npm run start`
+Follow the above functionality guide for information on on scenarios to test after running `npm i && npm run start`
