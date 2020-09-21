@@ -42,4 +42,7 @@ Search for organizations on GitHub. After searching for an organization explore 
 - More info when viewing a commit
 
 ## Brainstorm
+
 ![brainstorm](readme-resources/brainstorm.png)
+
+![octocat](public/favicon.png)
